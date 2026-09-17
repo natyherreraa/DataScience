@@ -1,0 +1,20 @@
+graph LR
+    %% Definición de Nodos
+    A[Fenómeno Físico: <br> Vibración de la Pala] 
+    B[Transductor: <br> Acelerómetro Piezoeléctrico]
+    C[Acondicionamiento y <br> Convertidor ADC]
+    D[(Almacenamiento Final: <br> Base de Datos / CSV)]
+
+    %% Conexiones e Identificación de Riesgos
+    A -- Energía Mecánica --> B
+    B -- "Señal Analógica <br> ⚠️ Riesgo: Interferencia EMI" --> C
+    C -- "Datos Digitales (16/24 bits) <br> ⚠️ Riesgo: Clipping / Saturación" --> D
+
+    %% Estilos de color para que quede profesional
+    classDef natural fill:#fdfd96,stroke:#333,stroke-width:2px,color:#000;
+    classDef hardware fill:#aec6cf,stroke:#333,stroke-width:2px,color:#000;
+    classDef software fill:#77dd77,stroke:#333,stroke-width:2px,color:#000;
+
+    class A natural;
+    class B,C hardware;
+    class D software;
